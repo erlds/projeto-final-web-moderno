@@ -5,7 +5,7 @@ module.exports = {
   connection: {
     database: "knowledge",
     user: "postgres",
-    password: "postgres",
+    password: "myPassword",
   },
   pool: {
     min: 2,
