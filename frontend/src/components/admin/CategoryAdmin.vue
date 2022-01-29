@@ -18,7 +18,6 @@
         <b-form-select
           v-if="mode === 'save'"
           id="category-parentId"
-          :readonly="mode === 'remove'"
           :options="categories"
           v-model="category.parentId"
         />
