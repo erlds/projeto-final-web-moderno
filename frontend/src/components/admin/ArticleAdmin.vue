@@ -123,6 +123,7 @@ export default {
       article: {},
       articles: [],
       categories: [],
+      users: [],
       page: 1,
       limit: 0,
       count: 0,
