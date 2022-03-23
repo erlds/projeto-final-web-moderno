@@ -40,7 +40,7 @@ module.exports = app => {
             app.db('users')
                 .update(user)
                 .where({id: user.id})
-                .whereNull('deletedAt')
+                .whereNull('deletedat')
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else {
@@ -52,11 +52,14 @@ module.exports = app => {
     }
 
     const get = (req,res) => {
+        console.log("fala ae cumpade");
         app.db('users')
             .select('id', 'name', 'email', 'admin')
-            .whereNull('deletedAt')
-            .then(user => res.json(user))
-            .catch(err => res.status(500).send(err))
+            .whereNull('deletedat')
+            .then(user => {
+                console.log(user);
+                res.json(user)})
+            .catch(err => {console.log(err)})
 
     }
 
@@ -64,7 +67,7 @@ module.exports = app => {
         app.db('users')
             .select('id', 'name', 'email', 'admin')
             .where({id: req.params.id})
-            .whereNull('deletedAt')
+            .whereNull('deletedat')
             .first()
             .then(users => res.json(users))
             .catch(err => res.status(500).send(err))

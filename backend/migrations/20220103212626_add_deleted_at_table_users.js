@@ -1,12 +1,12 @@
 
 exports.up = function(knex) {
     return knex.schema.alterTable('users', table => {
-        table.timestamp('deletedAt')
+        table.timestamp('deletedat')
     })
 };
 
 exports.down = function(knex) {
     return knex.schema.alterTable('users', table => {
-        table.dropColumn('deletedAt')
+        table.dropColumn('deletedat')
     })
 };
