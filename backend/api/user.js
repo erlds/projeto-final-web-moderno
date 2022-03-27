@@ -55,9 +55,7 @@ module.exports = app => {
         app.db('users')
             .select('id', 'name', 'email', 'admin')
             .whereNull('deletedat')
-            .then(user => {
-                console.log(user);
-                res.json(user)})
+            .then(user => {res.json(user)})
             .catch(err => {console.log(err)})
 
     }

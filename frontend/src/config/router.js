@@ -43,6 +43,7 @@ router.beforeEach((to, from, next) => {
     const json = localStorage.getItem(userKey)
 
     // TO DO: Uma alternativa a isso é a criação de um serviço no backend 
+    // TO DO: Criar um roteamento para não cair na pagina inicial ao atualizar o navegador
     if(to.matched.some(record => record.meta.requiresAdmin)) {
         const user = JSON.parse(json)
         user && user.admin ? next() : next({path: '/'})
