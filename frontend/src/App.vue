@@ -1,9 +1,9 @@
 <template>
-  <div id="app" :class="{ 'hide-menu': !isMenuVisible }">
+  <div id="app" :class="{ 'hide-menu': !isMenuVisible || !user }">
     <Header
       title="Cod3r - Projeto Base de Conhecimento"
-      :hideToggle="false"
-      :hideUserDropdown="false"
+      :hideToggle="!user"
+      :hideUserDropdown="!user"
     />
     <Menu v-if="user"/>
 	<Loading v-if="validatingToken" />

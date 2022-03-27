@@ -52,7 +52,6 @@ module.exports = app => {
     }
 
     const get = (req,res) => {
-        console.log("fala ae cumpade");
         app.db('users')
             .select('id', 'name', 'email', 'admin')
             .whereNull('deletedat')
